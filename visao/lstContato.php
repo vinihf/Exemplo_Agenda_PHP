@@ -3,7 +3,6 @@ include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
 $cContato = new ControleContato();
 
 if(isset($_GET['id'])){
-	$cContato = new ControleContato();
 	$cContato->excluir($_GET['id']);
 }
 
