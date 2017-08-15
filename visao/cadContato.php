@@ -31,9 +31,10 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
       <input type="tel" class="form-control" id="numero" name='numero' required>
     </div>
  </div>
-<input type='submit' name='botao' value='Adicionar'>
+<input type='submit' class='btn btn-primary btn-lg btn-block' name='botao' value='Adicionar'>
 </form>
-<a href='../index.html'>Voltar</a>
+<a class='btn btn-danger btn-lg btn-block' href='../index.html'>Voltar</a>
+</div>
 </div>
 </div>
 </div>
