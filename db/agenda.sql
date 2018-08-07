@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contato` (
   `id` int(11) NOT NULL,
-  `nome` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `numero` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `nome` varchar(200)  NOT NULL,
+  `numero` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
