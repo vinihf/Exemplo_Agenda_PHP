@@ -7,6 +7,7 @@ class MySQL{
 	
 	public function __construct(){
 		$this->connection = new mysqli(HOST,USUARIO,SENHA,BANCO);
+		$this->connection->set_charset("utf8");
 	}
 	public function __destruct(){
 		mysqli_close($this->connection);
