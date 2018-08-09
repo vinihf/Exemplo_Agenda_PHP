@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
-	include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
+	include $_SERVER['CONTEXT_DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
 	$cControle = new ControleContato();
 	$cControle->inserir($_POST);
 }
