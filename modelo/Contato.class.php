@@ -6,12 +6,14 @@ class Contato{
 	private $nome;
 	private $numero;
 	private $idUsuario;
+	private $conexao;
 
 	public function __construct($id = null, $nome = null, $numero = null, $idUsuario = null){
 		$this->id = $id;
 		$this->nome = $nome;
 		$this->numero = $numero;
 		$this->idUsuario = $idUsuario;
+		$this->conexao = new PDO('mysql:host='.HOST.';dbname='.BANCO, USUARIO, SENHA);
 	}
 
 	public function getId(){
@@ -47,9 +49,12 @@ class Contato{
 	}
 
 	public function inserir(){
-		$con = new MySQL();
-		$sql = "INSERT INTO contato (nome,numero,idUsuario) VALUES ('$this->nome','$this->numero', '$this->idUsuario')";
-		$con->executa($sql);
+		$stmt = $this->conexao->prepare("INSERT INTO contato (nome,numero,idUsuario) VALUES (:nome, :numero, :idUsuario)");
+		return $stmt->execute(array(
+			":nome" => $this->nome,
+			":numero" => $this->numero,
+			":idUsuario" => $this->idUsuario
+		));
 	}
 
 	public function listarTodos(){
