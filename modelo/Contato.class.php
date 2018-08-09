@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/agenda/db/MySQL.class.php";
+include $_SERVER['CONTEXT_DOCUMENT_ROOT']."/Agenda/db/MySQL.class.php";
 
 class Contato{
 	private $id;
@@ -63,7 +63,7 @@ class Contato{
 				$contato->setId($resultado['id']);
 				$contato->setNome($resultado['nome']);
 				$contato->setNumero($resultado['numero']);
-				$contato->setIdUsuario($resultado['idusuario']);
+				$contato->setIdUsuario($resultado['idUsuario']);
 				$contatos[] = $contato;
 			}
 			return $contatos;
@@ -83,7 +83,7 @@ class Contato{
 				$contato->setId($resultado['id']);
 				$contato->setNome($resultado['nome']);
 				$contato->setNumero($resultado['numero']);
-				$contato->setIdUsuario($resultado['idusuario']);
+				$contato->setIdUsuario($resultado['idUsuario']);
 				$contatos[] = $contato;
 			}
 			return $contatos;
