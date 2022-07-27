@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['idUsuario'])){
+	header("location:index.php");
+}
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 	include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
 	$cControle = new ControleContato();
@@ -18,6 +22,6 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 	<br>
 	<input type='submit' name='botao' value='Adicionar'>
 </form>
-<a href='../index.html'>Voltar</a>
+<a href='../index.php'>Voltar</a>
 </body>
 </html>

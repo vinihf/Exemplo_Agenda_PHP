@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['idUsuario'])){
+	header("location:index.php");
+}
+
 include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
 $cContato = new ControleContato();
 
@@ -6,7 +11,7 @@ if(isset($_GET['id'])){
 	$cContato->excluir($_GET['id']);
 }
 
-$contatos = $cContato->listarTodos();
+$contatos = $cContato->listarTodos($_SESSION['idUsuario']);
 ?>
 <html lang='pt-br'>
 <head>
@@ -26,7 +31,8 @@ $contatos = $cContato->listarTodos();
 	}
 ?>
 <br>
-<a href='../index.html'>Voltar</a>
+<a href='../visao/cadContato.php'>Adicionar Contato</a>
+<a href='../index.php'>Voltar</a>
 </body>
 </html>
 

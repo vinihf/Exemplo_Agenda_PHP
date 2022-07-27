@@ -5,6 +5,7 @@ include $_SERVER['DOCUMENT_ROOT']."/agenda/db/MySQL.class.php";
 		private $id;
 		private $nome;
 		private $numero;
+		private $idUsuario = null;
 		
 		public function __construct($id = null, $nome = null, $numero = null){
 			$this->id = $id;
@@ -18,6 +19,14 @@ include $_SERVER['DOCUMENT_ROOT']."/agenda/db/MySQL.class.php";
 		
 		public function setId($id){
 			$this->id = $id;
+		}
+
+		public function getIdUsuario(){
+			return $this->idUsuario;
+		}
+		
+		public function setIdUsuario($idUsuario){
+			$this->idUsuario = $idUsuario;
 		}
 		
 		public function getNome(){
@@ -38,13 +47,13 @@ include $_SERVER['DOCUMENT_ROOT']."/agenda/db/MySQL.class.php";
 		
 		public function inserir(){
 			$con = new MySQL();
-			$sql = "INSERT INTO contato (nome,numero) VALUES ('$this->nome','$this->numero')";
+			$sql = "INSERT INTO contato (nome,numero,idUsuario) VALUES ('$this->nome','$this->numero',$this->idUsuario)";
 			$con->executa($sql);
 		}
 		
-		public function listarTodos(){
+		public function listarTodos($idUsuario){
 			$con = new MySQL();
-			$sql = "SELECT * FROM contato";
+			$sql = "SELECT * FROM contato where idUsuario = {$idUsuario}";
 			$resultados = $con->consulta($sql);
 			if(!empty($resultados)){
 				$contatos = array();

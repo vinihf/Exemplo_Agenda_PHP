@@ -5,13 +5,14 @@ class ControleContato{
 	
 	public function inserir($dados){
 		$contato = new Contato(null,$dados['nome'],$dados['numero']);
+		$contato->setIdUsuario($_SESSION['idUsuario']);
 		$contato->inserir();
 		header("location:../visao/lstContato.php");
 	}
 	
-	public function listarTodos(){
+	public function listarTodos($idUsuario){
 		$contato = new Contato();
-		$contatos = $contato->listarTodos();
+		$contatos = $contato->listarTodos($idUsuario);
 		return $contatos;
 	}
 	
@@ -31,8 +32,7 @@ class ControleContato{
 		$contato->alterar();
 		header("location: lstContato.php");
 	}
-	
-	
+
 }
 
 ?>
